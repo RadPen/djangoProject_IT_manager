@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body{background:#008080;}
+        #wrapper{width: 900px; margin: 0 auto; background:#008080;}
+        #header{position:relative; height: 250px; background-color: #E0FFFF;
+            margin-bottom: 5px; border-radius: 5px; box-shadow: rgba(0,0,0,0.5) 0px 1px 3px;}
+        img{float: left; margin: -65px 0 0;}
+        h1{margin:0 0 10px 300px; color:#1E90FF; font-size:300%;}
+        h2{margin:0 0 100px 300px; color:#1E90FF; font-size:200%;}
+        #content {
+            margin-bottom: 5px;
+            float: right;
+            background: #E0FFFF;
+            border-radius: 5px;
+        }
+        #sidebar{
+            background-color: #E0FFFF;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #picture{
+            height:200px;
+            background-color: #E0FFFF;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        #footer{
+            height:100px;
+            background-color: #E0FFFF;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .content-wrapper {
+            display: flex;
+        }
+        .left-sidebar, .right-content {
+            margin: 5px;
+            padding: 20px;
+            border: 1px solid #dedede;
+        }
+        .left-sidebar {
+            width: 25%;
+        }
+        .right-content {
+            width: 75%;
+        }
+        .pic {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #dedede;
+            width: 30%;
+        }
+        .clear{clear: both;}
+        .name {
+            float: left;
+            margin: 20px 0 0 40%;
+            text-align:center;
+            color:#1E90FF;
+            font-size:120%;
+        }
+    </style>
+</head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1>{{ profession.title }}</h1>
+                <img src="https://cdn.worldvectorlogo.com/logos/it-2.svg" width="250" height="250">
+                <h2>{% block title-1 %}{% endblock %}</h2>
+            </div>
+            <div class="content-wrapper">
+                <div class="left-sidebar", id="sidebar">
+                <h3><span style="color:#1E90FF; font-size:120%;">На нашем сайте</span></h3>
+                    <a href="/"><span style="color:#1E90FF; font-size:120%;">Главная страница</span></a>
+                    <a href="/demand"><span style="color:#1E90FF; font-size:120%;">Востребованность</span></a>
+                    <a href="/geography"><span style="color:#1E90FF; font-size:120%;">География<br></span></a>
+                    <a href="/skills"><span style="color:#1E90FF; font-size:120%;">Навыки<br></span></a>
+                    <a href="/vacancies"><span style="color:#1E90FF; font-size:120%;">Последние вакансии</span></a>
+                <hr width="150" color="#037FFC" size="5">
+                </div>
+                <div class="right-content", id="content">
+                    <p1><span style="color:#1E90FF; font-size:120%;">{% block content %}{% endblock %}</span></p1>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="picture">
+                <img class="pic" src={% block picture-1 %}{% endblock %} width="170" height="170">
+                <img class="pic" src={% block picture-2 %}{% endblock %} width="170" height="170">
+                <img class="pic" src={% block picture-3 %}{% endblock %} width="170" height="170">
+            </div>
+            <div class="clear"></div>
+            <div id="footer">
+                <p class="name"><strong>Родион Расимович<br>РИ-210934</strong></p>
+            </div>
+        </div>
+    </body>
+</html>
